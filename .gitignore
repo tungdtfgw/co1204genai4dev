@@ -1,0 +1,9 @@
+*.pdf
+*.log
+
+.DS_Store
+__pycache__
+
+.env
+.vscode/
+secrets.toml
