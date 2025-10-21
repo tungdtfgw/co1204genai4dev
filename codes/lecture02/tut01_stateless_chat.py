@@ -13,16 +13,14 @@ client = genai.Client(api_key=get_key())
 while True:
     try:
         question = input('[User]: ')
-        
+        if question.strip() == 'exit' or question.strip() == 'quit':
+            break
         # generate a response
         response = client.models.generate_content(
             model='gemini-2.0-flash',
             contents=[question]
         )
         print('[GenAI]:', response.text)
-
-        if question.strip() == 'exit' or question.strip() == 'quit':
-            break
 
     except Exception as e:
         print(e)
