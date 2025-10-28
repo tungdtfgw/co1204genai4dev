@@ -14,12 +14,11 @@ client = genai.Client(api_key=get_key())
 chat = client.chats.create(model='gemini-2.0-flash')
 while True:
     question = input('[User]: ')
+    if question.strip() == 'exit' or question.strip() == 'quit':
+        break
     # send message to chat to generate a response
     response = chat.send_message(message=question)
     print('[GenAI]:', response.text)
-
-    if question.strip() == 'exit' or question.strip() == 'quit':
-        break
 
 # History of chat
 for message in chat.get_history():
